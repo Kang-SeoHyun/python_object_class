@@ -1,4 +1,4 @@
-import 09_29_01_calculator as c
+import calculator as c
 
 print(c.plus(10, 5))
 print(c.minus(10, 5))
