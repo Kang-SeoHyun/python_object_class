@@ -1,2 +1,2 @@
 # 💤객체지향프로그래밍💤
-### python, project
+### python, 딥러닝project
