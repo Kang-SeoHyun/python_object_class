@@ -1,6 +1,6 @@
-# 양기주 교수님의 대망의 첫 수업
+# 🎈양기주 교수님의 대망의 첫 수업🎈
 
-## 객체 지향 프로그래밍(OOP)
+## 👚객체 지향 프로그래밍(OOP)👚
 * 객체와 클래스
 	* 사람이라는 클래스를 만들어서 '서현'객체와 '유진'객체를 찍어낸다.
 * 상속
@@ -9,7 +9,7 @@
 * 상속의 조건
 	* 추상 기반 클래스  
 
-## 객체
+## 👚객체(object)👚
 ``` 객체(object) = 속성(attribute) + 기능(method) ```
 
 **속성?**  
@@ -40,7 +40,7 @@ class Car:
 
 ```
 
-## 메소드
+## 👚메소드(method)👚
 
 **인스턴스 메소드**  
 * 인스턴스(객체)에 속한 메소드
@@ -71,7 +71,7 @@ class Car:
 	```
 * ![image](https://user-images.githubusercontent.com/77817094/194218746-f5138188-e027-4225-b38e-dc36f48c6d01.png)
 
-## 멤버
+## 👚멤버(member)👚
 ![image](https://user-images.githubusercontent.com/77817094/194219222-132dace2-3a2c-4553-8f01-782d86f40a91.png)
 
 **퍼블리(Public) 멤버**   
@@ -84,3 +84,31 @@ class Car:
 * 접미사는 밑줄이 한 개까지만 허용된다. 예) __number_
 * ![image](https://user-images.githubusercontent.com/77817094/194219788-393771bd-5980-4d21-8a4b-627faf7ccd74.png)
 
+## 👚상속(Inheritance)👚
+
+**상속?**  
+한 클래스가 다른 클래스로부터 데이터 속성과 메소드를 물려받는 것.
+
+![image](https://user-images.githubusercontent.com/77817094/194220764-2d793649-a479-4aee-a4ee-3819f7c341bf.png)
+
+```python
+class Base:
+	def base_method(self):
+		print("base_method")
+
+		
+class Derived(Base):
+	pass
+
+base = Base()
+base.base_method()
+derived = Derived()
+derived.base_method()
+
+#출력 결과
+#base_method
+#base_method
+```
+
+**super()**
+이어서하기~!!!!
