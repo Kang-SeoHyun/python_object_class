@@ -18,11 +18,13 @@ class Account:
 			print(outputMoney + "원 출금하셨습니다.")
 			print("현재 잔액은 " + str(self.balance) + "원 입니다.")
 
-class Customer:
+class Customer(Account):
 	def __init__(self, name, phoneNum, account):
 		self.name = name
 		self.phoneNum = phoneNum
-		self.account = account
+		#self.account = account
+		super().__init__(account.accountNum, account.balance)
+
 
 if __name__ == '__main__':
 	a_acunt = Account('835002-04-222604', 30000)
@@ -30,10 +32,10 @@ if __name__ == '__main__':
 	b_acunt = Account('110-486-867100', 2000)
 	B = Customer('youjin', '010-9809-6826', b_acunt)
 	
-	A.account.deposit('8000')
-	A.account.withdraw('12000')
-	print("현재 " + A.name + "님 통장엔" + str(A.account.balance) + "원 있습니다.")
+	A.deposit('8000')
+	A.withdraw('12000')
+	print("현재 " + A.name + "님 통장엔" + str(A.balance) + "원 있습니다.")
 
-	B.account.deposit('100')
-	B.account.withdraw('32000')
-	print("현재" + B.name + "님 통장엔 " + str(B.account.balance) + "원 있습니다.")
+	B.deposit('100')
+	B.withdraw('32000')
+	print("현재" + B.name + "님 통장엔 " + str(B.balance) + "원 있습니다.")
