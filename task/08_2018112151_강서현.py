@@ -3,19 +3,19 @@ class Account:
 		self.accountNum = accountNum
 		self.balance = int(balance)
 
-	def deposit(self, inputMoney):
+	def deposit(self, inputMoney, name):
 		self.balance += int(inputMoney)
-		print(inputMoney + "원 입금하셨습니다.")
+		print(name + "님께서 " + inputMoney + "원 입금하셨습니다.")
 		print("현재 잔액은 " + str(self.balance) + "원 입니다.")
 
-	def withdraw(self, outputMoney):
+	def withdraw(self, outputMoney, name):
 		self.balance -= int(outputMoney)
 		if self.balance < 0:
-			print(outputMoney + "원을 출금하려 하였으나, 돈이 부족하여 실패했습니다.")
+			print(name + "님께서 " + outputMoney + "원을 출금하려 하였으나, 돈이 부족하여 실패했습니다.")
 			self.balance += int(outputMoney)
 			print("현재 잔액은 " + str(self.balance) + "원 입니다.")
 		else :
-			print(outputMoney + "원 출금하셨습니다.")
+			print(name + "님께서 " + outputMoney + "원 출금하셨습니다.")
 			print("현재 잔액은 " + str(self.balance) + "원 입니다.")
 
 class Customer(Account):
@@ -32,10 +32,10 @@ if __name__ == '__main__':
 	b_acunt = Account('110-486-867100', 2000)
 	B = Customer('youjin', '010-9809-6826', b_acunt)
 	
-	A.deposit('8000')
-	A.withdraw('12000')
+	A.deposit('8000', A.name)
+	A.withdraw('12000', A.name)
 	print("현재 " + A.name + "님 통장엔" + str(A.balance) + "원 있습니다.")
 
-	B.deposit('100')
-	B.withdraw('32000')
+	B.deposit('100', B.name)
+	B.withdraw('32000', B.name)
 	print("현재" + B.name + "님 통장엔 " + str(B.balance) + "원 있습니다.")
