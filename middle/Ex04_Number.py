@@ -8,3 +8,10 @@ math.factorial(3)
 math.pow(3, 2) # 3**2 = 9
 math.sqrt(16) # 4
 math.log(4, 2) #로그2에4 = 2
+
+print(21//5)
+print(21/5)
+
+a, b = 1, 2
+print(a, end = ', ')
+print(b)

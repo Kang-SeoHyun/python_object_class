@@ -29,3 +29,13 @@ fruits = "apple, kiwi, banana"
 fruits_list = fruits.split(", ")
 print(fruits_list)
 print(type(fruits_list))
+print(len(fruits))
+print(len(fruits_list)) #갯수 나옴
+
+print("이름을 입력하시오.")
+name = input()
+print("나이를 입력하시오.")
+age = int(input())
+e = 'My name is {0} and {1} years old'.format(name, age)
+print(e)
+
