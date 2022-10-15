@@ -171,3 +171,14 @@ student1['연락처'] = '010-1111-1111'
 	+ 딕셔너리 내용 다 없어짐.
 + for문으로 딕셔너리 모든 값 출력.
 	+ ![image](https://user-images.githubusercontent.com/77817094/195982450-1b92f77b-a04b-437b-84f9-c8ff7bcdd660.png)
+
+# 🥽반복문🥽
+
+## while문
+``` 코드로 대체 ```  
+
+## for문
+``` 코드로 대체 ```   
+
+### range() 함수  
+-> range(시작값, 멈춤값, 연속하는 두 수의 차)
