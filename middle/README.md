@@ -212,4 +212,86 @@ __name__ : __main__ 으로 뜸.
 ``` 모듈 꾸러미 ```
 * 모듈을 모아놓는 디렉토리
 * 디렉토리가 "파이썬의 패키지"로 인정받으려면 __init__.py 파일을 그 경로에 갖고 있어야 함.  
-	* 보통의 경우 init__.py 파일은 대개 비워둠
+	* 보통의 경우 init__.py 파일은 대개 비워둠 
+
+# 🍟오류 다루기🍟  
+
+**예외란?**  
+문법적으로 문제가 없는 코드를 실행할 때 발생하는 오류  
+* value error등
+
+**try ~ except로 예외 처리하기**  
+```python
+try:
+	# 문제 없을 때 실행 할 코드
+except:
+	# 문제 발생시 실행 할 코드
+```
+**복수 개의 except로 예외 처리하기**  
+```python
+try:
+	# 문제 없을 때 실행 할 코드
+except 예외형식1:
+	# 문제 발생시 실행 할 코드
+except 예외형식2:
+	# 문제 발생시 실행 할 코드
+```
+> 예외형식: 파이썬이 제공하는 내장 예외 형식  
+
+**예외의 인스턴스 활용하기 - as 문 사용**  
+```python
+try:
+	# 문제 없을 때 실행 할 코드
+except 예외형식1 as err:
+	# 문제 발생시 실행 할 코드
+except 예외형식2 as err:
+	# 문제 발생시 실행 할 코드
+```
+**except절에 대한 else**
+```python
+try:
+	# 문제 없을 때 실행 할 코드
+except:
+	# 문제 발생시 실행 할 코드
+else:
+	# except절을 만나지 않았을 경우 실행 할 코드
+```
+**항상 발생하는 finally 코드**
+```python
+try:
+	# 문제 없을 때 실행 할 코드
+except:
+	# 문제 발생시 실행 할 코드
+finally:
+	# 항상 마지막에 실행 되는 코드
+```
+
+내장 예외 형식만으로 충분하지 않을 때 직접 예외 클래스를 정의할 수 있음.  
+```python
+class MyException(Exception):
+	def __init__(self):
+		super().__init__("내 예외가 발생했습니다.")
+```
+
+# 🍺파일 데이터 관리🍺
+``` 열고 읽고 쓰고 닫고 ```
+![image](https://user-images.githubusercontent.com/77817094/196021703-9b190730-2ac6-4d1e-a503-557290e877d3.png)
+
+**자원 누수 방지**  
+with ~ as 문을 사용하면 close() 함수를 사용하지 않아도 됨.
+```python
+with open('./middle/Ex11/test.txt', 'r') as file:
+	str = file.read()
+	print(Str)
+	#file.close()
+```
+
+**open( )함수**  
+하나의 필수 매개변수와 일곱 개의 매개변수  
+```python
+open(file, mode='r', buffering=-1, encoding=None, errors=None, 
+newline=None, closefd=True, opener=None) 
+```  
+파일 열기 모드  
+![image](https://user-images.githubusercontent.com/77817094/196023068-ab2ea687-b6a5-4f89-945b-ed3253437b62.png)
+
