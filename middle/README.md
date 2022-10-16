@@ -4,6 +4,24 @@
 	* 따라서 스크립트 모드(소스파일 만들어서 전체 실행 하는 것)로 바꿈.
 
 ## **✨🧨인터프리터 컴파일러 차이🧨✨**
+``` 
+컴파일러는 소스코드 전체를 CPU가 읽을 수 있는 기계어롤 변환한다. 
+반면, 인터프리터는 소스코드 각 행을 기계어로 번역한다.
+따라서 오류가 나면 컴파일러는 컴파일 하는 도중에 오류가 나고,
+인터프리터는 분속 도중 어느 행에 오류가 발생하면 그것을 알려주고 멈춘다.
+```
+
+컴파일 방식:
+* c, c++, 파스칼, 에이다
+* CPU가 실행할 수 있는 기계 코드로 컴파일되므로 실행속도가 빠르다.
+* 개발 환경과 다른 환경(CPU/OS)로 옮기는 경우, 대체로 코드를 그대로 사용 못 함
+	* 이식성 낮음.
+	* C#, java 등 가상머신 기반의 언어는 이식성 높음.
+
+인터프리트 방식:
+* 베이직, 파이썬, 루비, PHP  
+* 애플리케이션을 실행 할 때마다 인터프리터가 소스 코드를 기계 코드로 번역하는 절차를 거치므로 실행속도가 느림 
+* 인터프리터만 옮기려는 환경을 지원한다면 변경할 필요 없이 코드 실행이 가능하다.
 
 # 💍컴퓨터 구조론💍
 ![image](https://user-images.githubusercontent.com/77817094/195242606-2f6201a6-bf5b-4649-b479-5f5307560168.png)  
@@ -324,3 +342,122 @@ newline=None, closefd=True, opener=None)
 * UTF-8 외에도 UTF-7, UTF-16, UTF-32 인코딩 등이 있음.
 * UTF-8은 코드포인트의 크기에 따라 1바이트에서부터 4바이트까지 가변폭으로 인코딩하므로 1 바이트로 표현 가능한 U+0000(십진수 0)부터 U+007F(십진수 127)까지는 ASCII와 완벽하게 호환
 
+# 🍳객체지향과 클래스🍳
+
+## 객체 지향 프로그래밍(OOP)👚
+* 객체와 클래스
+	* 사람이라는 클래스를 만들어서 '서현'객체와 '유진'객체를 찍어낸다.
+* 상속
+	* 나는 저 클래스를 가져다 쓸게
+	* 다중상속, 오버라이딩
+* 상속의 조건
+	* 추상 기반 클래스  
+
+## 객체(object)👚
+``` 객체(object) = 속성(attribute) + 기능(method) ```
+
+**속성?**  
+자동차의 속성 : 색, 바퀴 크기, 엔진 배기량  
+**기능?**  
+자동차의 기능 : 전진, 후진, 좌회전, 우회전  
+**속성 + 기능?**  
+자동차 객체 : 16인치의 바퀴를 가진 2000cc의 빨간 차는 전진, 후진, 좌회전, 우회전의 기능이 있다.  
+
+```python
+class Car:
+    def __init__(self): #__init__ 은 초기화하는 함수
+        self.color = 0xFF0000    # 바디의 색
+        self.wheel_size = 16     # 바퀴의 크기
+        self.displacement = 2000 # 엔진 배기량
+	
+    def forward(self): # 전진
+        pass
+
+    def backward(self): # 후진
+        pass
+
+    def turn_left(self): # 좌회전
+        pass
+
+    def turn_right(self): # 우회전
+        pass
+
+```
+## 클래스(class)👚
+```python
+class 클래스이름:
+	코드블록(변수와 메소드로 이루어짐.)
+```  
+``` 함수와 거의 동일한 의미지만 메소드는 클래스의 멤버라는 점이 다르다. ```  
+
+## 메소드(method)👚
+**인스턴스 메소드**  
+* 인스턴스(객체)에 속한 메소드
+	* 인스턴스 메소드가 “인스턴스에 속한다”라는 표현은 “인스턴스를 통해 호출가능하다.” 라는 뜻
+
+**정적 메소드**
+* 클래스에 귀속
+* @staticmethod 데코레이터로 수식
+* self 키워드 없이 정의
+* ```python 
+	class 클래스이름:
+    @staticmethod
+    def 메소드이름( 매개변수 ): #self매개변수 사용X
+        pass
+	```
+
+**클래스 메소드**
+* 클래스에 귀속  
+* @classmethod 데코레이터로 수식  
+* cls 매개변수 사용
+* ```python
+	class 클래스이름:
+    # ...
+    
+    @classmethod
+    def 메소드이름(cls): #매개변수 하나이상
+        pass
+	```
+* ![image](https://user-images.githubusercontent.com/77817094/194218746-f5138188-e027-4225-b38e-dc36f48c6d01.png)
+
+## 👚멤버(member)👚
+![image](https://user-images.githubusercontent.com/77817094/194219222-132dace2-3a2c-4553-8f01-782d86f40a91.png)
+
+**퍼블리(Public) 멤버**   
+안과 밖 모두에서 접근이 가능한 멤버  
+
+**프라이빗(Private) 멤버**   
+클래스 내부(코드 블록 안)에서만 접근이 가능한 멤버  
+명명 규칙
+* 두 개의 밑줄 __ 이 접두사여야 한다. 예) __number
+* 접미사는 밑줄이 한 개까지만 허용된다. 예) __number_
+* ![image](https://user-images.githubusercontent.com/77817094/194219788-393771bd-5980-4d21-8a4b-627faf7ccd74.png)
+
+## 👚상속(Inheritance)👚
+
+**상속?**  
+한 클래스가 다른 클래스로부터 데이터 속성과 메소드를 물려받는 것.
+
+![image](https://user-images.githubusercontent.com/77817094/194220764-2d793649-a479-4aee-a4ee-3819f7c341bf.png)
+
+```python
+class Base:
+	def base_method(self):
+		print("base_method")
+
+		
+class Derived(Base):
+	pass
+
+base = Base()
+base.base_method()
+derived = Derived()
+derived.base_method()
+
+#출력 결과
+#base_method
+#base_method
+```
+
+**super()**
+이어서하기~!!!!
