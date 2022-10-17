@@ -460,4 +460,37 @@ derived.base_method()
 ```
 
 **super()**
-이어서하기~!!!!
+``` 08번 과제, bank 코드로 대체 ```
+
+**다중상속**  
+```python
+class A:
+	pass
+class B:
+	pass
+class C:
+	pass
+class D(A, B, C):
+	pass
+
+#D는 여러 부모로부터 상속을 받았다 -> 다중상속
+```
+
+**오버라이딩**  
+```python
+class A:
+	def method(self, a, b):
+		print(a + b)
+
+class B(A):
+	def method(self, a, b):
+		print(a + b - a * b)
+
+class C(B):
+	def method(self, a, b):
+		print(a * b * (a - b))
+
+A().method(2,3) #5
+B().method(2,3) # -1
+C().method(2,3) # -6
+```
