@@ -490,7 +490,7 @@ class C(B):
 	def method(self, a, b):
 		print(a * b * (a - b))
 
-A().method(2,3) #5
+A().method(2,3) # 5
 B().method(2,3) # -1
 C().method(2,3) # -6
 ```
